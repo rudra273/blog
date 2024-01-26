@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-%9n!l%futzc_kj@542g#6x69s1pkcvr&hwbdzu(2-1c0ehjx+f
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['blog-ruby-chi-82.vercel.app', '127.0.0.1'] 
+ALLOWED_HOSTS = ['blog-ruby-chi-82.vercel.app', '127.0.0.1', 'localhost']  
 
 
 # Application definition
@@ -119,6 +119,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = 'static/'
+
+STATICFILES_DIRS = [BASE_DIR / 'static']
+
+MEDIA_URL = '/media/'
+
+MEDIA_ROOT = 'static/media/'  
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field

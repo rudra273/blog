@@ -4,11 +4,23 @@
 
 <h1>this is index.html</h1> 
 
-{% for article in articles %}
-    
-    {{article}}
-
-{% endfor %} 
-
+<div class="container ">
+    <h2>All Articles</h2>
+    <div class="row g-lg-2">
+        {% for article in articles %}
+        <div class='col-md-4 col-lg-3 col-sm-6'>  
+            <div class="card m-4" style="width: 18rem;"> 
+                <img style="height:230px;" src="{{article.img.url}}" class="card-img-top img-fluid" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{article.title | truncatewords:5}}</h5>
+                    <p class="card-text">{{article.content | truncatewords:20 }}</p>
+                    <a href="#" class="text-decoration-none">read more</a>
+                </div> 
+            </div> 
+        </div>  
+        {% endfor %} 
+    </div> 
+</div> 
+ 
 
 {% endblock content %}
