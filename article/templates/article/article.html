@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+    <h2 class='mt-4' style="width:80%;">{{article.title}}</h2> 
+    <h5 class='m-2'>Published on {{ article.pub_date }}</h5>
+    <img class="my-4" style="width:60%" src="{{article.img.url}}" alt="">
+    <p style="width:80%;" >{{ article.content }}</p> 
+
+</div> 
+
+{% endblock content %} 
