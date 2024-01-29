@@ -32,11 +32,11 @@
                 <ul class="dropdown-menu"> 
 
                   {% for category in categories %}
-                    <li><a class="dropdown-item" href="#">{{category}}</a></li>  
+                    <li><a class="dropdown-item" href="{% url "article:categorised_article" category.id %}">{{category}}</a></li>  
                   {% endfor %} 
 
                   <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">All</a></li>  
+                  <li><a class="dropdown-item" href="{% url "article:categorised_article" 0 %}">All</a></li>  
                 </ul>
               </li> 
             </ul>

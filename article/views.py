@@ -32,4 +32,25 @@ def single_article(request, pk):
         "article": article,  
     }
 
-    return render(request, 'article/article.html', context)  
+    return render(request, 'article/article.html', context)
+
+
+def categorised_article(request, pk):
+
+    if pk == 0:
+        articles = Article.objects.all()
+        context = {
+            'articles': articles, 
+            'category' : 'all' 
+            } 
+
+    else:
+        category = Category.objects.get(pk=pk)
+        articles = Article.objects.filter(category = category).all()
+
+        context ={
+            'articles': articles,
+            'category' : category, 
+        }
+
+    return render(request, 'article/categorised_article.html', context)   
