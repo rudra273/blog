@@ -1,5 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import *
+
+from .forms import ArticleForm
 # Create your views here.
 
 #conetxt processor - category
@@ -21,7 +23,6 @@ def index(request):
     }
 
     return render(request, 'article/index.html', context) 
-
 
 
 def single_article(request, pk):
@@ -54,3 +55,21 @@ def categorised_article(request, pk):
         }
 
     return render(request, 'article/categorised_article.html', context)   
+
+
+def create_article(request):
+
+    form = ArticleForm()
+
+    if request.method == 'POST':
+        form = ArticleForm(request.POST, request.FILES) 
+        if form.is_valid():
+            form.save()
+            return redirect('article:index')
+
+    context = {
+        "form" : form,
+    }
+
+    return render(request, 'article/article_form.html', context) 
+
