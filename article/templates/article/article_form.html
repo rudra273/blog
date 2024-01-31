@@ -3,6 +3,7 @@
 
 {% block content %}
 
+<<<<<<< HEAD
 <div class="container" >
     <form action="" method="POST" enctype = "multipart/form-data">
         {% csrf_token %}
@@ -18,6 +19,19 @@
         {% endfor %}   
         <button type="submit" class='btn btn-success'>Submit</button>
     </form>
+=======
+<div class="container"> 
+
+    <form action="" method="POST" class="form-horizontal" enctype="multipart/form-data">
+        {% csrf_token %}
+
+            {{form.as_p }}
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+
+>>>>>>> cdb048b7b40a3de253e08f3d3939f3d8960154e5
 </div>
 
 

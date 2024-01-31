@@ -32,7 +32,8 @@ ALLOWED_HOSTS = ['blog-ruby-chi-82.vercel.app', '127.0.0.1', 'localhost']
 
 INSTALLED_APPS = [
 
-    'article.apps.ArticleConfig', 
+    'article.apps.ArticleConfig',
+
 
     'users.apps.UsersConfig', 
 
@@ -43,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

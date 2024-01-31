@@ -1,6 +1,11 @@
 from django.shortcuts import render, redirect
 from .models import *
+<<<<<<< HEAD
 from .forms import *
+=======
+
+from .forms import ArticleForm
+>>>>>>> cdb048b7b40a3de253e08f3d3939f3d8960154e5
 # Create your views here.
 
 
@@ -23,7 +28,6 @@ def index(request):
     }
 
     return render(request, 'article/index.html', context) 
-
 
 
 def single_article(request, pk):
@@ -58,6 +62,7 @@ def categorised_article(request, pk):
     return render(request, 'article/categorised_article.html', context)   
 
 
+<<<<<<< HEAD
 def post_article(request): 
     form = ArticleForm()
     if request.method == "POST":
@@ -70,3 +75,21 @@ def post_article(request):
         'form' : form
     } 
     return render(request, 'article/article_form.html', context) 
+=======
+def create_article(request):
+
+    form = ArticleForm()
+
+    if request.method == 'POST':
+        form = ArticleForm(request.POST, request.FILES) 
+        if form.is_valid():
+            form.save()
+            return redirect('article:index')
+
+    context = {
+        "form" : form,
+    }
+
+    return render(request, 'article/article_form.html', context) 
+
+>>>>>>> cdb048b7b40a3de253e08f3d3939f3d8960154e5
