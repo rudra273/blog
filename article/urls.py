@@ -10,6 +10,8 @@ urlpatterns = [
 
     path('article/category/<int:pk>/', categorised_article, name='categorised_article'),  
 
+    path('article/post/', post_article, name= 'post_article'), 
+
     
 ]
 
