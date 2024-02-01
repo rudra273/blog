@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import *
 from .forms import *
+from django.contrib.auth.decorators import login_required 
 # Create your views here.
 
 #conetxt processor - category
@@ -55,8 +56,8 @@ def categorised_article(request, pk):
 
     return render(request, 'article/categorised_article.html', context)   
 
-
-def post_article(request): 
+@login_required
+def post_article(request):  
     form = ArticleForm()
     if request.method == "POST":
         form = ArticleForm(request.POST, request.FILES)  
