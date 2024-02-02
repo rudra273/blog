@@ -1,11 +1,24 @@
 {% extends "base.html" %}
 
-
 {% block content %}
 
-<div class="container">
-    {{user.username}} 
-</div>
+<div class=" my-4 container">
+    <div style="width:45%" >
+        <h6 class="text-dark fw-bold my-2">Username - {{user.username}}</h6>
+        {% if user.profile %}
+            <a class="btn btn-warning p-0 px-2 float-end" href="{% url "users:edit_profile" %}">Edit</a>
+            <div class="shadow rounded p-3 my-3">
+                <img class="mb-4 rounded" style= "width:80%;" src="{{user.profile.image.url}}" alt="">
+                <h6 class='text-dark'>{{user.profile.first_name}} {{user.profile.last_name}}</h6>
+                <p>📞 {{user.profile.contact_number}}</p>  
+                <p>📧 {{user.email}}</p> 
+                <p>Bio - {{user.profile.bio}}</p> 
+            </div> 
+        {% else %} 
+            <a class="btn btn-success p-0 px-2" href="{% url "users:edit_profile" %}">Create</a> 
+        {% endif %} 
+    </div> 
+    
+</div> 
 
-
-{% endblock content %}
+{% endblock content %}  

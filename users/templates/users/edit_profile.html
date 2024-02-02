@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div style="width:70%;" class="container">
+    <form action="" method= "POST" enctype="multipart/form-data"> 
+        {% csrf_token %}
+        <div class="form-group my-2">
+            <label class="form-label" for="first_name">First name</label> 
+            <input class="form-control" type="text" id="first_name" name="first_name" value={{profile.first_name}}>  
+        </div> 
+        <div class="form-group my-2">
+            <label class="form-label" for="last_name">Last name</label>
+            <input class="form-control" type="text" id="last_name" name="last_name" value= {{profile.last_name}}> 
+        </div> 
+        <div class="form-group my-2">
+            <label class="form-label" for="contact_number">Contact number</label>
+            <input class="form-control" type="text" id="contact_number" name="contact_number" value={{profile.contact_number}}> 
+        </div> 
+        {% if profile.image.url %}
+        <span>
+            <p>Current image</p>
+            <img class="my-2" style="width:20%;" src="{{profile.image.url}}" alt=""> 
+        </span>
+        {% endif %}  
+        <div class="form-group my-2">
+            <label class="form-label" for="image">Image</label> 
+            <input class="form-control" type="file" id="image" name="image">   
+        </div> 
+        <div class="form-group my-2">
+            <label class="form-label" for="">Bio</label> 
+            <textarea class="form-control" name="bio" id="bio" cols="30" rows="10">{{profile.bio}}</textarea>  
+        </div>  
+
+
+        <button class="btn btn-success" type="submit">Save</button> 
+    </form>
+</div>
+
+{% endblock content %}
