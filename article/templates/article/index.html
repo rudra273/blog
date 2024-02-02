@@ -3,24 +3,24 @@
 {% block content %}
 
 
-
-<div class="container ">
-    <h2 class='mt-4'>All Articles</h2>
-    <div class="row g-lg-2">
+<div class="container">
+    <h2 class="my-4">All Articles</h2>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4">
         {% for article in articles %}
-        <div class='col-md-4 col-lg-3 col-sm-6'>  
-            <div class="card m-4" style="width: 18rem;"> 
-                <img style="height:230px;" src="{{article.img.url}}" class="card-img-top img-fluid" alt="...">
+        <div class="col">
+            <div class="card shadow">
+                <img src="{{ article.img.url }}" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">{{article.title | truncatewords:5}}</h5>
-                    <p class="card-text">{{article.content | truncatewords:20 }}</p>
-                    <a href="{% url "article:single_article" article.id %}" class="text-decoration-none">read more</a>
-                </div> 
-            </div> 
-        </div>  
+                    <h5 class="card-title text-dark">{{ article.title | truncatewords:5 }}</h5>
+                    <p class="card-text">{{ article.content | truncatewords:20 }}</p>
+                    <a href="{% url 'article:single_article' article.id %}" class="float-end text-decoration-none">Read more</a>
+                </div>
+            </div>
+        </div> 
         {% endfor %} 
-    </div> 
-</div> 
+    </div>
+</div>
+
  
 
 {% endblock content %}

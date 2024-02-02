@@ -4,20 +4,20 @@
 {% block content %}
 
 <div class="container" >
-    <h3 class="m-2">Post a article</h3>
-    <form action="" method="POST" enctype = "multipart/form-data">
+    <h3 class="mx-1 my-3 fw-bold text-success">Post a article</h3> 
+    <form style="width:60%;" action="" method="POST" enctype = "multipart/form-data">
         {% csrf_token %}
         {% for field in form %}
-            <div style="width:60%;" class="">
-                <div class="form-label mt-2 mx-2 fw-bold"> 
+            <div class="">
+                <div class="form-label mt-2 mx-1 fw-bold text-dark "> 
                     {{field.label}}
                 </div> 
-                <div class="form-control border-0 my-2">  
-                    {{field}}
+                <div class="my-2">  
+                    {{field}} 
                 </div>   
             </div>    
         {% endfor %}   
-        <button type="submit" class='btn btn-success mx-2'>Submit</button>
+        <button type="submit" class='btn btn-success mx-1 my-3 rounded-0'>Submit</button>
     </form>
 </div>
 
