@@ -22,6 +22,3 @@ class Profile(models.Model):
 
 
 
-
-
-

@@ -62,10 +62,12 @@ def post_article(request):
     if request.method == "POST":
         form = ArticleForm(request.POST, request.FILES)  
         if form.is_valid():
-            form.save() 
+            article = form.save(commit=False)
+            article.author = request.user
+            article.save()  
             return redirect('article:single_article', pk=form.instance.id) 
 
-    context = {
+    context = { 
         'form' : form
     } 
     return render(request, 'article/article_form.html', context) 

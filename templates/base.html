@@ -1,3 +1,4 @@
+{% load static %} 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,7 +29,7 @@
     {% block nav %}
     <nav class="navbar navbar-expand-lg bg-body-tertiary shadow">
         <div class="container-fluid"> 
-          <a class="navbar-brand fw-bolder text-dark" href="{% url "article:index" %}">ZenSnippets</a> 
+          <a class="navbar-brand fw-bolder text-secondary" href="{% url "article:index" %}">ZenSnippets</a> 
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -121,10 +122,44 @@
 
 
     {% block footer %}
+
+    <footer class="bg-dark text-white mt-5">
+      <div class="container py-4">
+        <div class="row">
+          <div class="col-md-4">
+            <h4 class="text-success">About Us</h4>
+            <p>This is a simple website for learning purposes.</p>
+          </div>
+          <div class="col-md-4">
+            <h4 class="text-success">Quick Links</h4>
+            <ul class="list-unstyled">
+              <li><a href="{% static 'about.html' %}" class="text-white">About</a></li> 
+              <li><a href="/contact" class="text-white">Contact</a></li>
+              <li><a href="/privacy-policy" class="text-white">Privacy Policy</a></li>
+            </ul>
+          </div>
+          <div class="col-md-4">
+            <h4 class="text-success">Connect With Us</h4>
+            <ul class="list-unstyled">
+              <li><a href="#" target="_blank" rel="noopener noreferrer" class="text-white">Facebook</a></li>
+              <li><a href="#" target="_blank" rel="noopener noreferrer" class="text-white">Twitter</a></li>
+              <li><a href="#" target="_blank" rel="noopener noreferrer" class="text-white">Instagram</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="bg-secondary py-2">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12 text-center">
+              <p class="mb-0">&copy; 2024 ZenSnippets. All rights reserved.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer> 
     
     {% endblock footer %}
 
-
-    
 </body>
 </html>

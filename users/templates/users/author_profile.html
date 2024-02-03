@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class=" my-4 container">
+    <div style="width:45%" >
+        <h6 class="text-dark fw-bold my-2">Username - {{author.username}}</h6>
+        <p>article counts- {{article_counts}}</p> 
+        {% if author.profile %}
+            <div class="shadow rounded p-3 my-3">
+                <img class="mb-4 rounded" style= "width:80%;" src="{{author.profile.image.url}}" alt="">
+                <h6 class='text-dark'>{{author.profile.first_name}} {{author.profile.last_name}}</h6>
+                <p>📞 {{author.profile.contact_number}}</p>  
+                <p>📧 {{author.email}}</p> 
+                <p>Bio - {{author.profile.bio}}</p> 
+            </div>  
+        {% else %} 
+            ----
+        {% endif %}  
+    </div> 
+</div> 
+
+{% endblock content %}    

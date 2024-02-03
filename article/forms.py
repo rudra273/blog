@@ -14,7 +14,7 @@ class ArticleForm(forms.ModelForm):
     img = forms.ImageField(label='Upload a image', widget=BootstrapImageWidget())
     class Meta:
         model = Article
-        fields = "__all__" 
+        fields = ('category', 'title', 'content', 'img') 
 
         widgets ={
             'category' : forms.Select(attrs={'class': 'form-select shadow rounded-0','placeholder': 'Select a Category'}), 

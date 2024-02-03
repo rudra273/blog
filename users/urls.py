@@ -16,4 +16,6 @@ urlpatterns = [
 
     path('profile/edit', edit_profile,  name='edit_profile'),
 
+    path('profile/author/<int:pk>/', author_profile,  name='author_profile'),
+
 ]

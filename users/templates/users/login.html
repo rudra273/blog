@@ -2,35 +2,36 @@
 
 {% block content %}
 
-<div class="container">
-    <h2 class='my-3 fw-bold'>Login!</h2>
-    <form action="" method = "POST">
-        {% csrf_token %}
-        <div class= 'username'>
-            <div class="form-label mx-2 fw-bold">
-                {{form.username.label}}
-            </div>
-            <div class="form-control border-0">
-                {{form.username}} 
+<div style="height: 400px;" class="container d-flex justify-content-center p-5"> 
+    <div class="login-form"> 
+        <h2 class='my-3 fw-bold text-success'>Login!</h2>
+        <form action="" method = "POST">
+            {% csrf_token %}
+            <div class= 'username'>
+                <div class="form-label mx-2 fw-bold text-dark">
+                    {{form.username.label}}
+                </div>
+                <div class="form-control border-0">
+                    {{form.username}} 
+                </div> 
             </div> 
-        </div> 
-        <div class= 'password'>
-            <div class="form-label mx-2 fw-bold">
-                {{form.password.label}}
+            <div class= 'password'>
+                <div class="form-label mx-2 fw-bold text-dark">
+                    {{form.password.label}}
+                </div>
+                <div class="form-control border-0">
+                    {{form.password}} 
+                </div> 
             </div>
-            <div class="form-control border-0">
-                {{form.password}} 
-            </div> 
+            <button class="btn btn-success m-2" type="submit">Login</button> 
+        </form>
+
+        <div class="d-flex">
+            <h6 class='mt-2 fw-semibold mx-2'>Dont have an account?</h6>
+            <a class='mx-3 fs-5' href="{% url "users:register" %}">Register</a> 
         </div>
-        <button class="btn btn-success m-2" type="submit">Login</button> 
-
-    </form>
-
-    <div class="d-flex">
-        <h6 class='mt-2 fw-semibold mx-2'>Dont have an account?</h6>
-        <a class='mx-3 fs-5' href="{% url "users:register" %}">Register</a> 
-    </div> 
-
+    </div>
+    
 </div>
 
 {% endblock content %}
