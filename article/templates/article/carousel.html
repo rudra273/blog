@@ -9,7 +9,6 @@
         <div class="carousel-item {% if forloop.first %}active{% endif %}"> 
             <a href="{% url "article:single_article" post.id %}">
                 <img 
-                {% comment %} style="height:716px;"  {% endcomment %}
                 src="{{post.img.url}}" 
                 class="d-block w-100 h-100" 
                 alt="...">

@@ -4,7 +4,11 @@
 {% block content %}
 
 <div class="container">
-    <h4 class='my-4'>Category : {{category}}</h4> 
+    {% if query %} 
+    <h4 class='my-4'> results for : {{query}} </h4> 
+    {% else %}
+    <h4 class='my-4'>Category : {{category}}</h4>  
+    {% endif %} 
     <div class="">
         {% for article in articles %}
             <a class="row text-decoration-none text-dark my-4" href="{% url "article:single_article" article.id %}"> 
@@ -12,9 +16,11 @@
                     <img style="width:85%" src="{{article.img.url}}" alt="">  
                 </div>
                 <div class="contents col-8">
-                    <h4>{{article.title}}</h4>
-                    <h6>Published on {{ article.pub_date }}</h6> 
-                    <p>{{article.content | truncatewords:100 }}</p> 
+                    <h5 class="text-dark">{{article.title}}</h5>
+                    <h6 class="d-flex">
+                        Published on {{ article.pub_date }}
+                    </h6> 
+                    <p>{{article.content | truncatewords:50 }}</p> 
                 </div>
             </a>      
         {% endfor %}

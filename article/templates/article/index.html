@@ -18,8 +18,8 @@
                 <div class="card shadow">
                     <img src="{{ article.img.url }}" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title text-dark">{{ article.title | truncatewords:5 }}</h5>
-                        <p style="height: 70px;" class="card-text">{{ article.content | truncatewords:15 }}</p>
+                        <h5 style="height: 45px;" class="card-title text-dark">{{ article.title | truncatewords:5 }}</h5>
+                        <p style="height: 80px;" class="card-text">{{ article.content | truncatewords:15 }}</p>
                         <a href="{% url 'article:single_article' article.id %}" class="float-end text-decoration-none">Read more</a>
                     </div>
                 </div>

@@ -19,6 +19,20 @@ def categories(request):
     }
 
 
+def search_article(request):
+
+    if 'query' in request.GET:
+        query = request.GET['query'] 
+        articles = Article.objects.filter(title__icontains=query) | Article.objects.filter(content__icontains=query)
+
+    context = {
+        'articles': articles,
+        'query' : query,
+    } 
+
+    return render(request, 'article/categorised_article.html', context)
+
+
 def index(request):
      
     all_articles = Article.objects.all()
@@ -90,8 +104,11 @@ def post_article(request):
 #     template_name_suffix = "_update" 
 
 class UpdateArticle(UpdateView):
+
     model = Article
+
     form_class = ArticleForm
+
     template_name_suffix = "_update"
 
 class DeleteArticle(DeleteView):

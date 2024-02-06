@@ -62,10 +62,10 @@
 
             </ul>
             
-            <form class="d-flex" role="search">
-              <input class="form-control me-2 rounded-0" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success rounded-0" type="submit">Search</button>
-            </form>
+            <form action="{% url "article:search" %}" class="d-flex" role="search">
+              <input class="form-control me-2 rounded-0" type="search" placeholder="Search" aria-label="Search" name="query"> 
+              <button class="btn btn-outline-success rounded-0" type="submit">Search</button> 
+            </form> 
 
             <div class="auth d-flex mx-3">
               {% if user.is_authenticated %}

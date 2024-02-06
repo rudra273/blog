@@ -4,8 +4,11 @@
             <img style="height: 100px;" src="{{post.img.url}}" alt="">
         </div>
         <div id="content" class= "{% if exclude_div %} col-9 {% else %}col-7{% endif %}"> 
-            <h5>{{post.title}}</h5>
-            <p>{{post.content | truncatewords:10 }}</p>
+            
+            <a class="text-decoration-none p-0 m-0" href="{% url "article:single_article" post.id %}">
+                <h5>{{post.title}}</h5>
+                <p>{{post.content | truncatewords:10 }}</p>
+            </a> 
         </div>
         {% if not exclude_div %}
         <div class="col-2 text-center p-3">
