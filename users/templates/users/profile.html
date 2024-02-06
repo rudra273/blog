@@ -2,8 +2,8 @@
 
 {% block content %}
 
-<div class=" my-4 container">
-    <div style="width:45%" >
+<div class="row my-4 container">
+    <div id="profile" class="col-lg-4">
         <h6 class="text-dark fw-bold my-2">Username - {{user.username}}</h6>
         {% if user.profile %}
             <a class="btn btn-warning p-0 px-2 float-end" href="{% url "users:edit_profile" %}">Edit</a>
@@ -17,7 +17,15 @@
         {% else %} 
             <a class="btn btn-success p-0 px-2" href="{% url "users:edit_profile" %}">Create</a> 
         {% endif %} 
-    </div> 
-</div> 
+    </div>
 
-{% endblock content %}  
+    <div id="all_posts" class="col-lg-8">
+        <h3>All Posts</h3>
+        <div>
+            {% include "users/all_posts.html" with article_list=articles exclude_div=False %} 
+        </div>
+    </div>
+
+</div>
+
+{% endblock content %}   

@@ -2,8 +2,8 @@
 
 {% block content %}
 
-<div class=" my-4 container">
-    <div style="width:45%" >
+<div class="row my-4 container">
+    <div class="col-lg-4" id="profile" > 
         <h6 class="text-dark fw-bold my-2">Username - {{author.username}}</h6>
         <p>article counts- {{article_counts}}</p> 
         {% if author.profile %}
@@ -12,12 +12,18 @@
                 <h6 class='text-dark'>{{author.profile.first_name}} {{author.profile.last_name}}</h6>
                 <p>📞 {{author.profile.contact_number}}</p>  
                 <p>📧 {{author.email}}</p> 
-                <p>Bio - {{author.profile.bio}}</p> 
+                <p>Bio - {{author.profile.bio}}</p>  
             </div>  
         {% else %} 
             ----
         {% endif %}  
     </div> 
+
+    <div id="all_posts" class="col-lg-8">  
+        <h3>All Posts</h3>
+        {% include "users/all_posts.html" with article_list=articles exclude_div=True %}   
+    </div>  
+
 </div> 
 
 {% endblock content %}    

@@ -26,5 +26,3 @@ class ArticleForm(forms.ModelForm):
 
     
 
-
-

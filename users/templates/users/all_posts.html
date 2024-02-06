@@ -1,0 +1,18 @@
+{% for post in article_list %} 
+    <div class="row my-2">
+        <div id="image" class="col-3"> 
+            <img style="height: 100px;" src="{{post.img.url}}" alt="">
+        </div>
+        <div id="content" class= "{% if exclude_div %} col-9 {% else %}col-7{% endif %}"> 
+            <h5>{{post.title}}</h5>
+            <p>{{post.content | truncatewords:10 }}</p>
+        </div>
+        {% if not exclude_div %}
+        <div class="col-2 text-center p-3">
+            <a href="{% url "article:update_article" post.id %}" class="btn btn-success py-0 my-1">Edit</a>
+            <a href="{% url "article:delete_article" post.id %}" class="btn btn-danger py-0 my-1">Delete</a> 
+        </div> 
+        {% endif %}  
+        
+    </div> 
+{% endfor %}  

@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+<div class="container">
+
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %} 
+
+        <div>
+            <div class="mb-3">
+                <label for="id_category" class="form-label">Category</label>
+                {{ form.category }}
+            </div>
+            {% if form.instance.img %}
+                <img src="{{ form.instance.img.url }}" style="max-width:200px; max-height:200px;" /><br>
+            {% endif %}
+            <div class="mb-3">
+                <label for="id_img" class="form-label">Image</label>
+                {{ form.img }}
+            </div>
+            <div class="mb-3">
+                <label for="id_title" class="form-label">Title</label>
+                {{ form.title }}
+            </div>
+            <div class="mb-3">
+                <label for="id_content" class="form-label">Content</label>
+                {{ form.content }}
+            </div>
+
+        </div>
+
+        <button class="btn btn-success" type="submit">Save</button>
+    </form>
+
+</div>
+{% endblock content %} 

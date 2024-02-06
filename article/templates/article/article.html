@@ -10,7 +10,10 @@
         </a> on {{ article.pub_date }}
     </h5> 
     <img class="my-4" style="width:60%" src="{{article.img.url}}" alt=""> 
-    <p style="width:80%;" >{{ article.content }}</p> 
+    <article style="width: 80%;">
+        {{ article.content | safe }}
+    </article> 
+    {% comment %} <p style="width:80%;" >{{ article.content | safe }}</p>  {% endcomment %}
 
 </div> 
 {% endblock content %} 

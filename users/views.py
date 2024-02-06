@@ -4,7 +4,9 @@ from django.http import HttpResponse
 
 from .models import Profile
 from django.contrib.auth.models import User
-from article.models  import Article  
+from article.models  import Article 
+
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -25,11 +27,19 @@ def register(request):
 
     return render(request, 'users/register.html', context) 
 
+@login_required
 def profile(request):
+
+    articles = Article.objects.filter(author= request.user).all().order_by("-pub_date")
+
+    context = {
+        'articles': articles
+    }
     
-    return render(request, 'users/profile.html') 
+    return render(request, 'users/profile.html', context)  
 
 
+@login_required
 def edit_profile(request):
     
     try:
@@ -65,11 +75,14 @@ def author_profile(request, pk):
 
     author = User.objects.get(pk=pk) 
 
+    articles = Article.objects.filter(author=author).all()
+
     article_counts = Article.objects.filter(author=author).all().count()  
 
     context = {
         "author": author, 
-        "article_counts": article_counts,
+        "article_counts": article_counts, 
+        "articles": articles
     }
 
     return render(request, 'users/author_profile.html', context)  
