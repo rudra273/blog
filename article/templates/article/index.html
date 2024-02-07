@@ -13,19 +13,34 @@
     <div id="all_articles" class="my-5">   
         <h2 class="my-4">All Articles</h2>
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4">
-            {% for article in articles %}
-            <div class="col">
-                <div class="card shadow">
-                    <img src="{{ article.img.url }}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 style="height: 45px;" class="card-title text-dark">{{ article.title | truncatewords:5 }}</h5>
-                        <p style="height: 80px;" class="card-text">{{ article.content | truncatewords:15 }}</p>
-                        <a href="{% url 'article:single_article' article.id %}" class="float-end text-decoration-none">Read more</a>
+            {% for article in page_obj %}
+                <div class="col">
+                    <div class="card shadow">
+                        <img src="{{ article.img.url }}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 style="height: 45px;" class="card-title text-dark">{{ article.title | truncatewords:5 }}</h5>
+                            <p style="height: 80px;" class="card-text">{{ article.content | truncatewords:15 }}</p>
+                            <a href="{% url 'article:single_article' article.id %}" class="float-end text-decoration-none">Read more</a>
+                        </div>
                     </div>
-                </div>
-            </div> 
-        {% endfor %} 
-    </div>
+                </div> 
+            {% endfor %} 
+        </div>   
+        
+        <!-- Pagination -->
+        <div id="pagination" class="my-4 d-flex justify-content-center">
+            {% if page_obj.has_previous %}
+                <a class="btn btn-outline-success fw-semibold mx-2" href="?page=1">First</a> 
+                <a class="btn btn-outline-success fw-semibold mx-2" href="?page={{page_obj.previous_page_number}}">Previous</a> 
+            {% endif %}
+            <span class="h5 my-2 fw-semibold">
+            Page {{page_obj.number}} of {{page_obj.paginator.num_pages}}
+            </span>
+            {% if page_obj.has_next %}
+                <a class="btn btn-outline-success fw-semibold mx-2" href="?page={{page_obj.next_page_number}}">Next</a>    
+                <a class="btn btn-outline-success fw-semibold mx-2" href="?page={{page_obj.paginator.num_pages}}">Last</a>  
+            {% endif %}
+        </div>
     </div>
     
 </div>

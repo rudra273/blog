@@ -7,6 +7,8 @@ from django.views.generic.edit import UpdateView, DeleteView
 
 from django.urls import reverse_lazy
 
+from django.core.paginator  import Paginator
+
 # Create your views here.
 
 #conetxt processor - category
@@ -17,7 +19,6 @@ def categories(request):
     return {
         'categories': categories,
     }
-
 
 def search_article(request):
 
@@ -37,10 +38,18 @@ def index(request):
      
     all_articles = Article.objects.all()
 
+    paginator = Paginator(all_articles, 4)
+
+    page_number = request.GET.get("page")
+
+    page_obj = paginator.get_page(page_number)
+
     recent_articles = Article.objects.all().order_by('pub_date')[:3] 
 
     context = {
-        'articles': all_articles,
+        # 'articles': all_articles,
+
+        'page_obj' : page_obj, 
 
         'recent_articles': recent_articles
     }
@@ -95,13 +104,6 @@ def post_article(request):
     } 
     return render(request, 'article/article_form.html', context) 
 
-
-# class UpdateArticle(UpdateView):
-#     model = Article
-
-#     fields = ["category", "title", "img", "content"] 
-
-#     template_name_suffix = "_update" 
 
 class UpdateArticle(UpdateView):
 
