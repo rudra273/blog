@@ -17,7 +17,7 @@ def register(request):
         form = NewRegisterForm(request.POST)
         if form.is_valid():
             user = form.save()
-            return redirect('users:login')  
+            return redirect('login')  
     else:
         form = NewRegisterForm()
 
@@ -66,7 +66,7 @@ def edit_profile(request):
             profile = Profile(user=user, first_name=first_name, last_name=last_name, contact_number=contact_number, bio=bio, image=image)
             profile.save()
         
-        return redirect('users:profile')
+        return redirect('profile')
 
     return render(request, 'users/edit_profile.html', {'profile': profile})  
 

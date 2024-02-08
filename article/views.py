@@ -44,7 +44,7 @@ def index(request):
 
     page_obj = paginator.get_page(page_number)
 
-    recent_articles = Article.objects.all().order_by('pub_date')[:3] 
+    recent_articles = Article.objects.all().order_by('-pub_date')[:3] 
 
     context = {
         # 'articles': all_articles,
@@ -117,6 +117,6 @@ class DeleteArticle(DeleteView):
 
     model = Article 
 
-    success_url = reverse_lazy('users:profile') 
+    success_url = reverse_lazy('profile') 
 
 

@@ -28,8 +28,9 @@
 
         <div class="d-flex">
             <h6 class='mt-2 fw-semibold mx-2'>Dont have an account?</h6>
-            <a class='mx-3 fs-5' href="{% url "users:register" %}">Register</a> 
+            <a class='mx-3 fs-5' href="{% url "register" %}">Register</a> 
         </div>
+        <a href="{% url "password_reset" %}">Forget password?</a>  
     </div>
     
 </div>

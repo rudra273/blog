@@ -5,7 +5,7 @@
 <div class="container">
     <h2 class='mt-4' style="width:80%;">{{article.title}}</h2> 
     <h5 class='m-2'>
-        By <a class="text-decoration-none" href="{% url "users:author_profile" article.author.id %}">
+        By <a class="text-decoration-none" href="{% url "author_profile" article.author.id %}">
             {{article.author}}
         </a> on {{ article.pub_date }}
     </h5> 
