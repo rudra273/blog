@@ -6,7 +6,7 @@ for cloneing-
   venv\Scripts\activate 
 3. open gitbash in same folder . and paste this link -
 **git clone https://github.com/rudra273/blog.git**
-4. after clong channge direcotry to blog by using this command --
+4. after cloning channge direcotry to blog by using this command --
 **cd blog**
 5. install requiremnets.txt by this commnad -
 **pip install -r requirements.txt**
