@@ -2,13 +2,14 @@ for cloneing-
 
 1. first create a folder and install virtual enviroment.
 **python -m venv venv**
-3. activate virtual enviroment.
+2. activate virtual enviroment.
   venv\Scripts\activate 
-5. open gitbash in same folder . and paste this link -
+3. open gitbash in same folder . and paste this link -
 **git clone https://github.com/rudra273/blog.git**
-
-6. after clong channge direcotry to blog by using this command --
+4. after clong channge direcotry to blog by using this command --
 **cd blog**
-7. install requiremnets.txt by this commnad -
+5. install requiremnets.txt by this commnad -
 **pip install -r requirements.txt**
-
+6. To get password reset functionality Go to -> blog/settings- set your email and app_password 
+7. Now run the server by this command-
+   **python manage.py runserver** 
